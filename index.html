@@ -245,7 +245,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#articles">Articles</a></li>
     <li><a href="#tools">AI Tools</a></li>
-    <li><a href="#productivity">Productivity</a></li>
+    <li><a href="#articles">Productivity</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -280,12 +280,12 @@ footer {
   <p class="sec-desc">In-depth guides, honest reviews, and practical tips on AI tools and productivity.</p>
 
   <div class="cats">
-    <a href="#" class="cat-pill active">All</a>
-    <a href="#" class="cat-pill">AI Tools</a>
-    <a href="#" class="cat-pill">Productivity</a>
-    <a href="#" class="cat-pill">Reviews</a>
-    <a href="#" class="cat-pill">ChatGPT</a>
-    <a href="#" class="cat-pill">Free Tools</a>
+    <a href="javascript:void(0)" class="cat-pill active" onclick="filterPosts('all')">All</a>
+    <a href="javascript:void(0)" class="cat-pill" onclick="filterPosts('ai-tools')">AI Tools</a>
+    <a href="javascript:void(0)" class="cat-pill" onclick="filterPosts('productivity')">Productivity</a>
+    <a href="javascript:void(0)" class="cat-pill" onclick="filterPosts('reviews')">Reviews</a>
+    <a href="javascript:void(0)" class="cat-pill" onclick="filterPosts('chatgpt')">ChatGPT</a>
+    <a href="javascript:void(0)" class="cat-pill" onclick="filterPosts('free-tools')">Free Tools</a>
   </div>
 
   <div class="featured">
@@ -370,6 +370,13 @@ footer {
 </footer>
 
 <script>
+function filterPosts(cat) {
+  document.querySelectorAll(".cat-pill").forEach(function(p) {
+    p.classList.remove("active");
+  });
+  event.target.classList.add("active");
+}
+
 function subscribeNewsletter() {
   var email = document.getElementById("nl-email").value;
   if (!email || !email.includes("@")) {
